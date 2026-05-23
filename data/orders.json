@@ -1,0 +1,170 @@
+[
+  {
+    "id": "SPZ12345678",
+    "items": [
+      {
+        "product": {
+          "id": "1",
+          "name": "T-shirt Premium",
+          "price": 25000
+        },
+        "quantity": 2,
+        "size": "M",
+        "color": "Noir"
+      }
+    ],
+    "total": 50000,
+    "shipping": 3500,
+    "customer": {
+      "firstName": "Jean",
+      "lastName": "Dupont",
+      "email": "jean.dupont@example.com",
+      "phone": "+221 77 123 45 67",
+      "address": "123 Rue de la Paix",
+      "city": "Dakar",
+      "postalCode": "12345",
+      "country": "Sénégal",
+      "paymentMethod": "card",
+      "deliveryOption": "standard"
+    },
+    "status": "processing",
+    "createdAt": "2024-01-15T10:30:00.000Z"
+  },
+  {
+    "id": "SPZ46004047",
+    "items": [
+      {
+        "product": {
+          "id": 5,
+          "name": "Montre Sport GPS",
+          "category": "Accessoires",
+          "price": 35000,
+          "oldPrice": 42000,
+          "image": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500&q=80",
+          "images": [
+            "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500&q=80",
+            "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500&q=80",
+            "https://images.unsplash.com/photo-1557438159-51eec7a6c9e8?w=500&q=80"
+          ],
+          "badge": "Promo",
+          "badge_type": "sale",
+          "rating": 4.9,
+          "reviews": 312,
+          "description": "Montre sportive avec GPS intégré, cardiofréquencemètre et suivi d'activité complet.",
+          "sizes": [
+            "S/M",
+            "M/L"
+          ],
+          "colors": [
+            {
+              "name": "Noir",
+              "hex": "#1a1a2e"
+            },
+            {
+              "name": "Blanc",
+              "hex": "#f1faee"
+            },
+            {
+              "name": "Orange",
+              "hex": "#FF6B35"
+            }
+          ],
+          "supplier": {
+            "name": "TechSport",
+            "verified": true,
+            "rating": 4.9
+          },
+          "inStock": true
+        },
+        "quantity": 1,
+        "size": "S/M",
+        "color": "Blanc"
+      }
+    ],
+    "total": 35000,
+    "shipping": 0,
+    "customer": {
+      "firstName": "loic",
+      "lastName": "India",
+      "email": "lasso123@gmail.com",
+      "phone": "0712129409",
+      "address": "Bingerville Abidan ,Ivory coast",
+      "city": "Abidjan",
+      "postalCode": "",
+      "country": "Sénégal",
+      "paymentMethod": "cash",
+      "deliveryOption": "pickup"
+    },
+    "status": "pending",
+    "createdAt": "2026-04-11T22:20:04.047Z"
+  },
+  {
+    "id": "SPZ46078097",
+    "items": [
+      {
+        "product": {
+          "id": 8,
+          "name": "Chaussures Football Pro",
+          "category": "Chaussures",
+          "price": 19000,
+          "oldPrice": 25000,
+          "image": "https://images.unsplash.com/photo-1511886929837-354d827aae26?w=500&q=80",
+          "images": [
+            "https://images.unsplash.com/photo-1511886929837-354d827aae26?w=500&q=80",
+            "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=500&q=80",
+            "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=500&q=80"
+          ],
+          "badge": "Promo",
+          "badge_type": "sale",
+          "rating": 4.8,
+          "reviews": 198,
+          "description": "Chaussures de football professionnelles avec crampons interchangeables et design aérodynamique.",
+          "sizes": [
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45"
+          ],
+          "colors": [
+            {
+              "name": "Blanc/Or",
+              "hex": "#FFD700"
+            },
+            {
+              "name": "Noir",
+              "hex": "#1a1a2e"
+            }
+          ],
+          "supplier": {
+            "name": "GoalMaster",
+            "verified": true,
+            "rating": 4.9
+          },
+          "inStock": true
+        },
+        "quantity": 1,
+        "size": "42",
+        "color": "Noir"
+      }
+    ],
+    "total": 26000,
+    "shipping": 7000,
+    "customer": {
+      "firstName": "loic",
+      "lastName": "India",
+      "email": "lasso123@gmail.com",
+      "phone": "0712129409",
+      "address": "Bingerville",
+      "city": "Abidjan",
+      "postalCode": "",
+      "country": "Sénégal",
+      "paymentMethod": "cash",
+      "deliveryOption": "express"
+    },
+    "status": "pending",
+    "createdAt": "2026-04-11T22:21:18.097Z"
+  }
+]
