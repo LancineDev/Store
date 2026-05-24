@@ -1,6 +1,10 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  // Explicitly set the root directory to handle monorepo structure
+  turbopack: {
+    root: ".",
+  },
   typescript: {
     // Do not ignore build errors in production — fail the build on type errors
     ignoreBuildErrors: false,
