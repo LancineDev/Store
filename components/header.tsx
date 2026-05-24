@@ -138,7 +138,7 @@ export function Header() {
                             <Link
                               key={cat.name}
                               href={cat.href}
-                              className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors"
+                              className="block px-4 py-2 text-sm text-foreground hover:text-primary hover:bg-accent/50 transition-colors"
                             >
                               {cat.name}
                             </Link>

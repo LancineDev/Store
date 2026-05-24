@@ -111,6 +111,80 @@ Pour ajouter une base de données Supabase :
 4. Remplacer le stockage localStorage par Supabase
 5. Implémenter les Row Level Security (RLS) policies
 
+## Production checklist
+
+Follow these steps before deploying to production:
+
+- **Set environment variables**: ensure `AUTH_SECRET` or `NEXTAUTH_SECRET`, `ADMIN_EMAIL`, and `DATABASE_URL` are set. See `.env.example`.
+- **Remove dev shortcuts**: confirm no dev-only bypasses remain (admin APIs, fallback secrets).
+- **Provision a production database**: create Postgres/MySQL and set `DATABASE_URL`.
+- **Run Prisma migrations**: `npx prisma migrate deploy` (or `prisma migrate deploy` in CI).
+- **Create a secure admin account**: locally run `node scripts/create_admin.js your-admin@example.com StrongPass123!` and keep credentials secure.
+- **Audit dependencies**: run `pnpm audit` / `npm audit` and update/pin vulnerable packages.
+- **Build and smoke test**:
+
+```bash
+pnpm install
+pnpm build
+NODE_ENV=production pnpm start
+```
+
+- **Set up CI/CD**: run builds and migrations in CI, store secrets in your provider (Vercel, Netlify, Fly.io, etc.).
+
+## Docker deployment
+
+1. Create `.env.local` from `.env.example` and fill in production values.
+2. Start the app stack:
+
+```bash
+docker compose up -d --build
+```
+
+3. Open the site at `http://localhost:3000`.
+4. Stop the stack when done:
+
+```bash
+docker compose down
+```
+
+> The compose setup includes `db` (Postgres), `redis` and `web` services. The web service reads values from `.env.local` and uses `npm start` to run the built Next.js app.
+- **Enable HTTPS and HSTS** on your domain and configure CORS and CSP headers.
+- **Add monitoring & error reporting** (Sentry, Datadog) and set up alerts.
+- **Configure backups** for your database and uploaded assets.
+
+If you want, I can continue and: add a `.github/workflows/ci.yml` skeleton, remove the dev fallback in `lib/auth-secret.ts` (done), and scaffold deploy instructions for Vercel or Fly.io. Tell me which provider you plan to use.
+ 
+## Provisioning a production-like database (local)
+
+You can provision a local Postgres instance using Docker Compose and run Prisma migrations and seed data.
+
+1. Start Postgres with Docker Compose:
+
+```bash
+docker compose up -d
+```
+
+2. Set the `DATABASE_URL` environment variable (example):
+
+```bash
+export DATABASE_URL="postgresql://sportzone:sportzonepass@localhost:5432/sportzone"
+```
+
+On Windows PowerShell:
+
+```powershell
+$env:DATABASE_URL = "postgresql://sportzone:sportzonepass@localhost:5432/sportzone"
+```
+
+3. Run Prisma migrate and seed:
+
+```bash
+npx prisma migrate deploy
+node prisma/seed.js # or `ts-node prisma/seed.ts` if TypeScript installed
+```
+
+The repository includes `docker-compose.yml` and a CI workflow at `.github/workflows/ci.yml` that runs migrations and builds on push.
+
 ## Licence
 
 MIT

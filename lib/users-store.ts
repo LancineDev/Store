@@ -98,7 +98,7 @@ export function upsertOAuthUser(email: string, name: string): UserRecord {
     const r = roleForEmail(user.email, user.role);
     if (r !== user.role || user.name !== name) {
       user = { ...user, name, role: r };
-      const i = users.findIndex((u) => u.id === user.id);
+      const i = users.findIndex((u) => u.id === user!.id);
       users[i] = user;
       writeUsers(users);
     }

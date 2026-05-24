@@ -74,15 +74,12 @@ export async function POST(request: NextRequest) {
     // Call CinetPay payment
     const paymentResult = await createCinetPayPayment({
       amount: total,
-      currency: 'XOF',
       orderId,
-      description: `Purchase of ${product.name}`,
       customerName,
       customerEmail,
-      customerPhone,
     })
 
-    if (!paymentResult.success) {
+    if (!paymentResult.payment_url) {
       // Delete the order if payment creation failed
       await prisma.order.delete({ where: { id: orderId } })
       return NextResponse.json(
@@ -92,7 +89,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({
-      paymentUrl: paymentResult.paymentUrl,
+      paymentUrl: paymentResult.payment_url,
       orderId,
     })
   } catch (error) {

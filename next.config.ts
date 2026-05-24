@@ -2,10 +2,12 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   typescript: {
-    ignoreBuildErrors: true,
+    // Do not ignore build errors in production — fail the build on type errors
+    ignoreBuildErrors: false,
   },
   images: {
-    unoptimized: true,
+    // Enable Next.js image optimization in production
+    unoptimized: false,
   },
   async headers() {
     return [
@@ -30,7 +32,8 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https:; font-src 'self' data:",
+            // tightened CSP for production — may need further adjustments for third-party scripts
+            value: "default-src 'self'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:; frame-ancestors 'none';",
           },
         ],
       },
