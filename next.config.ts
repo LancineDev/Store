@@ -36,8 +36,8 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            // tightened CSP for production — may need further adjustments for third-party scripts
-            value: "default-src 'self'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:; frame-ancestors 'none';",
+            // Allow inline scripts/styles where required (temporary) — adjust for stricter policy as needed
+            value: "default-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:; frame-ancestors 'none';",
           },
         ],
       },
